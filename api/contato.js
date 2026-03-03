@@ -37,7 +37,7 @@ export default async function handler(req, res) {
   try {
     await transporter.sendMail({
       from: `"Fita Adesiva Express" <${process.env.SMTP_USER}>`,
-      to: 'vendas@fitec.com.br, vendas2@fitec.com.br',
+      to: 'rafaelsiewerdtoca@gmail.com',
       subject: `Novo orçamento de ${nome}`,
       html: htmlBody,
     });
