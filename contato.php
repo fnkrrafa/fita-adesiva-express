@@ -29,7 +29,7 @@ $smtp_port = 465;
 $smtp_user = 'vendas@fitaadesivaexpress.com.br';
 $smtp_pass = 'V#Md-0;er2w(U7iN';
 
-$destinatarios = 'vendas@fitec.com.br, vendas2@fitec.com.br';
+$destinatarios = 'vendas@fitec.com.br, vendas2@fitec.com.br, rafaelsiewerdtoca@gmail.com';
 $assunto = "Novo orçamento de $nome — Fita Adesiva Express";
 
 $corpo  = "Nova Solicitação de Orçamento — Fita Adesiva Express\n\n";
