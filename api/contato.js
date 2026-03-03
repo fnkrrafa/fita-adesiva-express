@@ -14,7 +14,7 @@ module.exports = async function handler(req, res) {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT),
-    secure: false,
+    secure: true,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
@@ -37,7 +37,7 @@ module.exports = async function handler(req, res) {
   try {
     await transporter.sendMail({
       from: `"Fita Adesiva Express" <${process.env.SMTP_USER}>`,
-      to: 'rafaelsiewerdtoca@gmail.com',
+      to: 'vendas@fitec.com.br, vendas2@fitec.com.br',
       subject: `Novo orçamento de ${nome}`,
       html: htmlBody,
     });
