@@ -10,12 +10,13 @@ module.exports = async function handler(req, res) {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
+    tls: { rejectUnauthorized: false },
   });
 
   try {
     await transporter.verify();
 
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"Fita Adesiva Express" <${process.env.SMTP_USER}>`,
       to: 'rafaelsiewerdtoca@gmail.com',
       subject: '✅ Teste SMTP — Fita Adesiva Express',
@@ -31,7 +32,13 @@ module.exports = async function handler(req, res) {
       `,
     });
 
-    return res.status(200).json({ ok: true, message: 'E-mail de teste enviado para rafaelsiewerdtoca@gmail.com' });
+    return res.status(200).json({
+      ok: true,
+      messageId: info.messageId,
+      accepted: info.accepted,
+      rejected: info.rejected,
+      serverResponse: info.response,
+    });
   } catch (err) {
     console.error('Erro no teste SMTP:', err);
     return res.status(500).json({
