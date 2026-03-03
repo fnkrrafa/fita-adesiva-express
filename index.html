@@ -1,0 +1,2222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Fita adesiva personalizada com envio express para todo o Brasil. Acrílica ou Hot Melt, com ou sem impressão. A partir de R$ 8,60/rolo. Orçamento em minutos.">
+    <meta name="keywords"
+        content="fita adesiva personalizada, fita adesiva impressa, fita adesiva express, fita BOPP, fita para embalagem, fita com logomarca">
+    <title>Fita Adesiva Express — Personalizada com Envio Rápido para Todo Brasil</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fita Adesiva Express — Personalizada com Envio Rápido">
+    <meta property="og:description"
+        content="Fitas adesivas personalizadas com sua marca. Acrílica ou Hot Melt. Envio rápido para todo o Brasil.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fitaadesivaexpress.com.br">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1a56db;
+            --primary-dark: #1342a8;
+            --primary-light: #e8efff;
+            --accent: #f59e0b;
+            --accent-dark: #d97706;
+            --dark: #0f172a;
+            --dark-soft: #1e293b;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-soft: #f8fafc;
+            --bg-muted: #f1f5f9;
+            --border: #e2e8f0;
+            --green: #10b981;
+            --green-bg: #ecfdf5;
+            --whatsapp: #25d366;
+            --whatsapp-dark: #1fb855;
+            --radius: 12px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0 24px;
+        }
+
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--whatsapp);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--whatsapp-dark);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--primary-light) 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--green-bg);
+            color: var(--green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero-badge::before {
+            content: "✓";
+            font-weight: 800;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1.12;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 520px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-lg {
+            font-size: 1.05rem;
+            padding: 16px 32px;
+        }
+
+        .btn-outline-light {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image-wrapper img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 20px;
+        }
+
+        /* ==================== TRUST BAR ==================== */
+        .trust-bar {
+            background: var(--dark);
+            padding: 18px 0;
+        }
+
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .trust-item .icon {
+            font-size: 1.2rem;
+        }
+
+        /* ==================== BENEFÍCIOS ==================== */
+        .benefits {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 .highlight {
+            color: var(--primary);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .benefit-card p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .benefit-card .tag {
+            display: inline-block;
+            margin-top: 12px;
+            background: var(--bg-muted);
+            color: var(--text-light);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ==================== PERSONALIZAÇÃO ==================== */
+        .personalization {
+            padding: 80px 0;
+            background: var(--bg-soft);
+        }
+
+        .pers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .pers-image {
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .pers-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pers-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .pers-content h2 .highlight {
+            color: var(--primary);
+        }
+
+        .pers-content>p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .pers-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .pers-features li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 0.92rem;
+        }
+
+        .pers-features .check {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: var(--green-bg);
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ==================== COMPARATIVO ==================== */
+        .comparison {
+            padding: 80px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .comp-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .comp-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .comp-card.popular {
+            border-color: var(--primary);
+            position: relative;
+        }
+
+        .comp-card.popular::before {
+            content: "Mais vendida";
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--accent);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .comp-header {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .comp-header.acrilica {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+
+        .comp-header.hotmelt {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+        }
+
+        .comp-header h3 {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .comp-header .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.82rem;
+            margin-top: 4px;
+        }
+
+        .comp-body {
+            padding: 24px;
+        }
+
+        .comp-body ul {
+            list-style: none;
+        }
+
+        .comp-body li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+        }
+
+        .comp-body li:last-child {
+            border-bottom: none;
+        }
+
+        .comp-body .check-icon {
+            color: var(--green);
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .comp-footer {
+            padding: 0 24px 24px;
+        }
+
+        .comp-indicated {
+            background: var(--bg-muted);
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .comp-indicated strong {
+            color: var(--text);
+        }
+
+        .comp-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: all 0.2s;
+        }
+
+        .comp-btn.btn-primary:hover {
+            transform: none;
+        }
+
+        /* ==================== PROCESSO ==================== */
+        .process {
+            padding: 80px 0;
+            background: var(--bg-soft);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 0 auto 14px;
+        }
+
+        .step h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        /* ==================== SOCIAL PROOF ==================== */
+        .social-proof {
+            padding: 80px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .testimonial p {
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .testimonial-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .testimonial-role {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* ==================== FAQ ==================== */
+        .faq {
+            padding: 80px 0;
+            background: var(--bg-soft);
+        }
+
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 22px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .faq-question .arrow {
+            transition: transform 0.3s;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 22px 18px;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-item.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* ==================== FORMULÁRIO DE CADASTRO ==================== */
+        .register-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--primary-light) 100%);
+        }
+
+        .register-section .section-header h2 .highlight {
+            color: var(--primary);
+        }
+
+        .form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-family: inherit;
+            color: var(--text);
+            background: var(--bg-soft);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            appearance: none;
+        }
+
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.12);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .form-submit {
+            width: 100%;
+            justify-content: center;
+            font-size: 1rem;
+            padding: 16px;
+            margin-top: 4px;
+            border-radius: 10px;
+        }
+
+        .form-notice {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .form-success .success-icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+        }
+
+        .form-success h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .form-success p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ==================== CTA FINAL ==================== */
+        .final-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 14px;
+        }
+
+        .final-cta h2 .highlight {
+            color: var(--accent);
+        }
+
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .final-price {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px 22px;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .final-price strong {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: #0b1120;
+            padding: 50px 0 24px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        footer h4 {
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+        }
+
+        /* ==================== WHATSAPP FLOAT ==================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--whatsapp);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float .tooltip {
+            position: absolute;
+            right: 72px;
+            background: white;
+            color: var(--text);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            transform: translateX(8px);
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .whatsapp-float:hover .tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px 24px;
+                border-bottom: 1px solid var(--border);
+                gap: 16px;
+                box-shadow: var(--shadow-md);
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-grid {
+                gap: 40px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .hero {
+                padding: 96px 0 56px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .hero h1 {
+                font-size: 1.85rem;
+            }
+
+            .hero-desc {
+                font-size: 0.97rem;
+                margin-bottom: 20px;
+            }
+
+            .section-header h2 {
+                font-size: 1.45rem;
+            }
+
+            .benefits {
+                padding: 56px 0;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .personalization {
+                padding: 56px 0;
+            }
+
+            .pers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison {
+                padding: 56px 0;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process {
+                padding: 56px 0;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .social-proof {
+                padding: 56px 0;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq {
+                padding: 56px 0;
+            }
+
+            .register-section {
+                padding: 56px 0;
+            }
+
+            .final-cta {
+                padding: 56px 0;
+            }
+
+            .final-cta h2 {
+                font-size: 1.7rem;
+            }
+
+            .final-cta p {
+                font-size: 0.95rem;
+            }
+
+            .final-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .trust-items {
+                gap: 14px;
+            }
+
+            .trust-item {
+                font-size: 0.78rem;
+            }
+
+            .form-wrapper {
+                padding: 28px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .mstep-grid2 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-mstep {
+                padding: 16px;
+            }
+        }
+
+        /* ==================== HERO MULTI-STEP FORM ==================== */
+        .hero-mstep {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 22px;
+            margin-top: 24px;
+        }
+
+        .mstep-progress-wrap {
+            margin-bottom: 16px;
+        }
+
+        .mstep-bar {
+            width: 100%;
+            height: 22px;
+            background: var(--bg-muted);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .mstep-bar-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 6px;
+            transition: width 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+        }
+
+        .mstep-bar-fill span {
+            font-size: 0.74rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .mstep-step-label {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .mstep-panel {
+            animation: mstepFadeIn 0.28s ease;
+        }
+
+        @keyframes mstepFadeIn {
+            from { opacity: 0; transform: translateX(10px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        .mstep-grid2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .mstep-input {
+            width: 100%;
+            padding: 11px 13px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            color: var(--text);
+            background: var(--bg-soft);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        select.mstep-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+        }
+
+        .mstep-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.10);
+            background: white;
+        }
+
+        .mstep-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .mstep-label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .mstep-field {
+            margin-bottom: 12px;
+        }
+
+        .mstep-btn-next {
+            width: 100%;
+            padding: 13px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.97rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            font-family: inherit;
+            margin-top: 6px;
+        }
+
+        .mstep-btn-next:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .mstep-btn-row {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .mstep-btn-prev {
+            padding: 13px;
+            background: var(--bg-muted);
+            color: var(--text);
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+
+        .mstep-btn-prev:hover {
+            background: #dde3ec;
+        }
+
+        .mstep-btn-submit {
+            padding: 13px;
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .mstep-btn-submit:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-1px);
+        }
+
+        .mstep-hero-success {
+            display: none;
+            text-align: center;
+            padding: 28px 12px;
+        }
+
+        .mstep-hero-success .s-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+        }
+
+        .mstep-hero-success h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .mstep-hero-success p {
+            font-size: 0.86rem;
+            color: var(--text-light);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- SVG sprite — reutilizado em todo o documento -->
+    <svg style="display:none" aria-hidden="true">
+        <symbol id="ico-wapp" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </symbol>
+    </svg>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="logo">
+                FITA ADESIVA <span>Express</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#personalizada">Personalizada</a></li>
+                <li><a href="#comparativo">Comparativo</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#depoimentos">Clientes</a></li>
+                <li><a href="#cadastro">Orçamento</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="https://wa.me/5547996353757?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20fita%20adesiva."
+                class="nav-cta" target="_blank" rel="noopener">
+                <svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#ico-wapp"/></svg>
+                Falar no WhatsApp
+            </a>
+            <button class="mobile-menu-btn" id="mobile-btn" aria-label="Menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">Envio Express para todo o Brasil</div>
+                    <h1>Fita adesiva para <span class="highlight">fechar embalagens</span> com eficiência e segurança.
+                    </h1>
+                    <p class="hero-desc">Fita BOPP incolor com adesivo hot melt ou acrílico, com ou sem personalização.
+                        Ideal para e-commerces, indústrias e transportadoras.</p>
+
+                    <!-- Multi-step form inline -->
+                    <div class="hero-mstep">
+                        <!-- Progress bar -->
+                        <div class="mstep-progress-wrap">
+                            <div class="mstep-bar">
+                                <div class="mstep-bar-fill" id="mstep-fill" style="width:50%">
+                                    <span id="mstep-pct">50%</span>
+                                </div>
+                            </div>
+                            <span class="mstep-step-label" id="mstep-lbl">Passo 1 de 2 — Seus dados</span>
+                        </div>
+
+                        <!-- Step 1 -->
+                        <div class="mstep-panel" id="mstep1">
+                            <div class="mstep-grid2">
+                                <input class="mstep-input" type="text" id="h-nome" placeholder="Seu Nome" autocomplete="name">
+                                <input class="mstep-input" type="text" id="h-doc" placeholder="CNPJ ou CPF" autocomplete="off" maxlength="18">
+                            </div>
+                            <div class="mstep-grid2">
+                                <input class="mstep-input" type="tel" id="h-tel" placeholder="Telefone + DDD" autocomplete="tel">
+                                <input class="mstep-input" type="email" id="h-email" placeholder="E-mail" autocomplete="email">
+                            </div>
+                            <button type="button" class="mstep-btn-next" onclick="mstepNext()">Próximo</button>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="mstep-panel" id="mstep2" style="display:none">
+                            <div class="mstep-grid2">
+                                <div>
+                                    <label class="mstep-label">Tipo de fita</label>
+                                    <select class="mstep-input" id="h-produto">
+                                        <option value="">Selecione</option>
+                                        <option value="acrilica">Fita Acrílica (BOPP)</option>
+                                        <option value="hotmelt">Fita Hot Melt</option>
+                                        <option value="personalizada">Fita Personalizada</option>
+                                        <option value="seguranca">Fita de Segurança</option>
+                                        <option value="nao-sei">Não sei ainda</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="mstep-label">Quantidade</label>
+                                    <select class="mstep-input" id="h-qtd">
+                                        <option value="">Selecione</option>
+                                        <option value="1-10">1 a 10 caixas</option>
+                                        <option value="10-50">10 a 50 caixas</option>
+                                        <option value="50-100">50 a 100 caixas</option>
+                                        <option value="100+">+100 caixas</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mstep-btn-row">
+                                <button type="button" class="mstep-btn-prev" onclick="mstepPrev()">Anterior</button>
+                                <button type="button" class="mstep-btn-submit" onclick="mstepSubmit()">
+                                    <svg width="17" height="17" fill="currentColor" aria-hidden="true"><use href="#ico-wapp"/></svg>
+                                    Solicitar Agora
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Success -->
+                        <div class="mstep-hero-success" id="mstep-success">
+                            <div class="s-icon">✅</div>
+                            <h4>Solicitação enviada!</h4>
+                            <p>Abrimos o WhatsApp com sua mensagem. Nossa equipe responde em minutos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem do produto -->
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img
+                            src="hero-fitec-nova.png"
+                            alt="Fita Adesiva Express — Produto"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TRUST BAR ==================== -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item"><span class="icon">🚚</span> Envio para todo o Brasil</div>
+                <div class="trust-item"><span class="icon">⚡</span> Despacho em até 24h</div>
+                <div class="trust-item"><span class="icon">🏭</span> Direto da fábrica FITEC</div>
+                <div class="trust-item"><span class="icon">💬</span> Orçamento em minutos</div>
+                <div class="trust-item"><span class="icon">🔒</span> Pagamento seguro</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== BENEFÍCIOS ==================== -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Diferenciais</span>
+                <h2>A segurança no fechamento que sua mercadoria precisa</h2>
+                <p>Fitas adesivas FITEC com alta aderência, resistência e fácil aplicação.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💧</div>
+                    <h3>Alta aderência e resistência</h3>
+                    <p>Cola com firmeza em papelão, plástico e metal, garantindo vedação segura em qualquer tipo de
+                        embalagem.</p>
+                    <span class="tag">Caixas, embalagens e produtos industriais</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Aplicação fácil e rápida</h3>
+                    <p>Desenrolamento suave e corte fácil, ideal para linhas manuais e automatizadas. Agilidade no
+                        empacotamento.</p>
+                    <span class="tag">Linhas de produção e logística</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌡️</div>
+                    <h3>Resistência térmica</h3>
+                    <p>Mantém a aderência mesmo em ambientes frios ou quentes, ideal para armazéns e centros de
+                        distribuição.</p>
+                    <span class="tag">Armazéns e transportadoras</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Personalização com sua marca</h3>
+                    <p>Impressão com logotipo, cores e mensagens. Reforce a identidade visual da sua empresa em cada
+                        envio.</p>
+                    <span class="tag">E-commerces e lojas online</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔒</div>
+                    <h3>Segurança anti-violação</h3>
+                    <p>Fitas de segurança personalizadas que evidenciam tentativas de abertura, protegendo sua
+                        mercadoria.</p>
+                    <span class="tag">Produtos de alto valor</span>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📦</div>
+                    <h3>Versatilidade de uso</h3>
+                    <p>Disponível com adesivo hot melt ou acrílico, em diversas larguras e metragens. Adapta-se a
+                        qualquer necessidade.</p>
+                    <span class="tag">Todos os segmentos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PERSONALIZAÇÃO ==================== -->
+    <section class="personalization" id="personalizada">
+        <div class="container">
+            <div class="pers-grid">
+                <div class="pers-image">
+                    <img src="https://fitaadesivaexpress.com.br/wp-content/uploads/2026/02/image_1.png"
+                        alt="Fita Adesiva Personalizada com sua marca"
+                        loading="lazy"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg, #fef3c7, #fde68a)'; this.style.display='none';">
+                </div>
+                <div class="pers-content">
+                    <span class="section-tag">Personalização</span>
+                    <h2>Fitas adesivas personalizadas com a <span class="highlight">sua marca</span></h2>
+                    <p>Deixe sua embalagem com a identidade da sua empresa. Produzimos fitas personalizadas em rolo com
+                        a estampa da sua marca, logotipo ou mensagem.</p>
+                    <ul class="pers-features">
+                        <li>
+                            <span class="check">✓</span>
+                            <span>Impressão com logomarca em até 3 cores (sistema Pantone)</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span>Fitas promocionais e de segurança personalizadas</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span>Diversas larguras: 45mm, 48mm e 72mm</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span>Proteção e autenticação de embalagens contra violação</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span>Profissionalismo e reconhecimento em cada envio</span>
+                        </li>
+                    </ul>
+                    <a href="#cadastro" class="btn btn-primary">Solicitar Fita Personalizada →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COMPARATIVO ==================== -->
+    <section class="comparison" id="comparativo">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Compare</span>
+                <h2>Escolha a fita ideal para sua operação</h2>
+                <p>Dois tipos de adesivo para atender diferentes necessidades logísticas.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comp-card">
+                    <div class="comp-header acrilica">
+                        <h3>Fita Acrílica</h3>
+                        <div class="subtitle">Versátil e econômica</div>
+                    </div>
+                    <div class="comp-body">
+                        <ul>
+                            <li><span class="check-icon">✓</span> Mais econômica para alto volume</li>
+                            <li><span class="check-icon">✓</span> Fechamento de embalagens geral</li>
+                            <li><span class="check-icon">✓</span> Melhor transparência e durabilidade</li>
+                            <li><span class="check-icon">✓</span> Ideal para temperaturas mais altas</li>
+                            <li><span class="check-icon">✓</span> Sofre menos com variação térmica</li>
+                        </ul>
+                    </div>
+                    <div class="comp-footer">
+                        <div class="comp-indicated"><strong>Indicada para:</strong> quem busca fechamento geral,
+                            versatilidade e menor custo.</div>
+                        <a href="#cadastro" class="comp-btn btn btn-primary">Solicitar Fita Acrílica</a>
+                    </div>
+                </div>
+
+                <div class="comp-card popular">
+                    <div class="comp-header hotmelt">
+                        <h3>Fita Hot Melt</h3>
+                        <div class="subtitle">Alto desempenho</div>
+                    </div>
+                    <div class="comp-body">
+                        <ul>
+                            <li><span class="check-icon">✓</span> Adesão inicial alta e imediata</li>
+                            <li><span class="check-icon">✓</span> Excelente fixação em caixas de papelão</li>
+                            <li><span class="check-icon">✓</span> Fechamento de embalagens pesadas</li>
+                            <li><span class="check-icon">✓</span> Mais resistente a rompimento</li>
+                            <li><span class="check-icon">✓</span> Ótima para empacotamento rápido</li>
+                        </ul>
+                    </div>
+                    <div class="comp-footer">
+                        <div class="comp-indicated"><strong>Indicada para:</strong> quem precisa de produtividade e
+                            fechamento rápido.</div>
+                        <a href="#cadastro" class="comp-btn btn btn-primary">Solicitar Fita Hot Melt</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COMO FUNCIONA ==================== -->
+    <section class="process" id="como-funciona">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Processo</span>
+                <h2>Como funciona</h2>
+                <p>Do orçamento à entrega em poucos passos.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Solicite seu orçamento</h4>
+                    <p>Preencha o formulário ou fale pelo WhatsApp. Informe tipo de fita, quantidade e se deseja
+                        personalização.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Receba a proposta</h4>
+                    <p>Enviamos o orçamento detalhado em minutos, com preços, prazo e condições de pagamento.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Aprove e pague</h4>
+                    <p>Após aprovação, iniciamos a produção ou separação imediata do seu pedido.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Receba com rapidez</h4>
+                    <p>Envio express para todo o Brasil. Fitas lisas despacham em até 24h. Personalizadas conforme prazo
+                        acordado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DEPOIMENTOS ==================== -->
+    <section class="social-proof" id="depoimentos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Depoimentos</span>
+                <h2>O que nossos clientes dizem</h2>
+                <p>Empresas de todo o Brasil confiam na Fita Adesiva Express.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Excelente qualidade e envio rápido. As fitas personalizadas deram um upgrade na experiência de
+                        unboxing dos nossos clientes."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MC</div>
+                        <div>
+                            <div class="testimonial-name">Marcos Costa</div>
+                            <div class="testimonial-role">E-commerce de cosméticos — SP</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Usamos a fita Hot Melt na nossa linha de empacotamento. Aderência excelente, não descola nem em
+                        dias quentes. Recomendo."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AF</div>
+                        <div>
+                            <div class="testimonial-name">Ana Ferreira</div>
+                            <div class="testimonial-role">Gerente de logística — MG</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"O melhor preço que encontramos no mercado. Atendimento rápido e fitas sempre dentro do padrão.
+                        Já viramos clientes fixos."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RL</div>
+                        <div>
+                            <div class="testimonial-name">Ricardo Lima</div>
+                            <div class="testimonial-role">Distribuidora de alimentos — PR</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Dúvidas</span>
+                <h2>Perguntas frequentes</h2>
+                <p>Tire suas dúvidas sobre nossas fitas adesivas.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item open">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Qual a diferença entre fita acrílica e hot melt?
+                        <span class="arrow">▾</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            A fita acrílica é mais econômica, transparente e resiste melhor a variações de temperatura.
+                            Já a Hot Melt tem adesão inicial mais forte, é mais resistente a rompimento e ideal para
+                            empacotamento rápido de caixas de papelão. A escolha depende da sua operação: volume alto e
+                            economia → acrílica; velocidade e aderência imediata → hot melt.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Qual o pedido mínimo para fitas personalizadas?
+                        <span class="arrow">▾</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Trabalhamos com pedidos a partir de quantidades acessíveis. Entre em contato pelo WhatsApp
+                            ou pelo formulário de orçamento para verificar o pedido mínimo atualizado e receber uma
+                            proposta personalizada para o seu volume.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Qual o prazo de entrega?
+                        <span class="arrow">▾</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Fitas lisas (sem personalização) são despachadas em até 24 horas após confirmação de
+                            pagamento. Fitas personalizadas têm prazo de produção variável conforme especificações —
+                            consulte-nos para prazo exato. Entregamos para todo o Brasil.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Vocês entregam para todo o Brasil?
+                        <span class="arrow">▾</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Sim! Fazemos envio para todas as regiões do Brasil através de transportadoras parceiras. O
+                            frete é calculado conforme o destino e o volume do pedido.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        Quais formas de pagamento vocês aceitam?
+                        <span class="arrow">▾</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Aceitamos PIX, boleto bancário e transferência. Para clientes recorrentes, oferecemos
+                            condições especiais de pagamento. Consulte nossa equipe comercial.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        A fita pode ser usada em máquinas automáticas?
+                        <span class="arrow">▾</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Sim! Nossas fitas são compatíveis tanto com aplicação manual quanto com máquinas seladoras
+                            automáticas. O desenrolamento é suave e uniforme, garantindo produtividade na linha de
+                            empacotamento.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FORMULÁRIO DE CADASTRO / ORÇAMENTO ==================== -->
+    <section class="register-section" id="cadastro">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Orçamento</span>
+                <h2>Solicite seu <span class="highlight">orçamento grátis</span></h2>
+                <p>Preencha o formulário e nossa equipe entrará em contato em minutos com a melhor proposta.</p>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="orcamento-form" onsubmit="handleFormSubmit(event)" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome completo *</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com.br" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">WhatsApp / Telefone *</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="produto">Tipo de produto de interesse</label>
+                            <select id="produto" name="produto">
+                                <option value="">Selecione um produto</option>
+                                <option value="acrilica">Fita Acrílica (BOPP)</option>
+                                <option value="hotmelt">Fita Hot Melt</option>
+                                <option value="personalizada">Fita Personalizada (com logo)</option>
+                                <option value="seguranca">Fita de Segurança</option>
+                                <option value="nao-sei">Não sei ainda — quero orientação</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade aproximada</label>
+                            <select id="quantidade" name="quantidade">
+                                <option value="">Selecione a quantidade</option>
+                                <option value="1-10">1 a 10 caixas</option>
+                                <option value="10-50">10 a 50 caixas</option>
+                                <option value="50-100">50 a 100 caixas</option>
+                                <option value="100+">Mais de 100 caixas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem ou observações</label>
+                        <textarea id="mensagem" name="mensagem" rows="4"
+                            placeholder="Descreva sua necessidade, tipo de embalagem, uso previsto, largura desejada, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-whatsapp form-submit">
+                        <svg width="18" height="18" fill="currentColor" aria-hidden="true"><use href="#ico-wapp"/></svg>
+                        Enviar solicitação pelo WhatsApp
+                    </button>
+
+                    <p class="form-notice">🔒 Seus dados estão seguros. Não compartilhamos suas informações com
+                        terceiros.</p>
+                </form>
+
+                <div class="form-success" id="form-success">
+                    <div class="success-icon">✅</div>
+                    <h3>Solicitação enviada com sucesso!</h3>
+                    <p>Abrimos o WhatsApp com sua mensagem pré-preenchida. Nossa equipe responde em minutos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA FINAL ==================== -->
+    <section class="final-cta" id="orcamento">
+        <div class="container">
+            <h2>Tenha fita adesiva com <span class="highlight">envio imediato</span></h2>
+            <p>Suas embalagens merecem segurança e agilidade. Solicite seu orçamento agora e receba em minutos.</p>
+            <div class="final-cta-buttons">
+                <a href="https://wa.me/5547996353757?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20fita%20adesiva."
+                    class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#ico-wapp"/></svg>
+                    Solicitar Orçamento pelo WhatsApp
+                </a>
+                <a href="#cadastro" class="btn btn-outline btn-lg btn-outline-light">
+                    Preencher Formulário
+                </a>
+            </div>
+            <div class="final-price">
+                A partir de <strong>R$ 8,60</strong> por rolo de 100 metros — o melhor preço do mercado
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        FITA ADESIVA <span>Express</span>
+                    </a>
+                    <p>Fitas adesivas de alta qualidade para fechamento de embalagens. Direto
+                        da fábrica FITEC para todo o Brasil, com envio express e preço justo.</p>
+                </div>
+                <div>
+                    <h4>Produtos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#comparativo">Fita Acrílica</a></li>
+                        <li><a href="#comparativo">Fita Hot Melt</a></li>
+                        <li><a href="#personalizada">Fita Personalizada</a></li>
+                        <li><a href="#personalizada">Fita de Segurança</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Links úteis</h4>
+                    <ul class="footer-links">
+                        <li><a href="#beneficios">Benefícios</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#cadastro">Solicitar Orçamento</a></li>
+                        <li><a href="#faq">Dúvidas Frequentes</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p>📱 (47) 99635-3757</p>
+                    <p>📞 (47) 3394-1675</p>
+                    <p>📧 comercial@fitec.com.br</p>
+                    <p>📍 Rua Aracaju, 55 — Tapajos<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indaial, SC — CEP 89080-338</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Fita Adesiva Express — FITEC Embalagens. Todos os direitos reservados.</span>
+                <span>CNPJ: 01.245.084/0001-96</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== WHATSAPP FLUTUANTE ==================== -->
+    <a href="https://wa.me/5547996353757?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20fita%20adesiva."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale no WhatsApp">
+        <svg width="28" height="28" fill="currentColor" aria-hidden="true"><use href="#ico-wapp"/></svg>
+        <span class="tooltip">Fale conosco no WhatsApp</span>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-btn').addEventListener('click', function () {
+            const nav = document.getElementById('nav-links');
+            nav.classList.toggle('open');
+            this.textContent = nav.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#nav-links a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                document.getElementById('nav-links').classList.remove('open');
+                document.getElementById('mobile-btn').textContent = '☰';
+            });
+        });
+
+        // Phone mask — função compartilhada pelos dois formulários
+        function applyPhoneMask(el) {
+            el.addEventListener('input', function (e) {
+                let v = e.target.value.replace(/\D/g, '');
+                if (v.length <= 10) {
+                    v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+                } else {
+                    v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+                }
+                e.target.value = v;
+            });
+        }
+        applyPhoneMask(document.getElementById('telefone'));
+        applyPhoneMask(document.getElementById('h-tel'));
+
+        // CPF / CNPJ mask (hero form)
+        document.getElementById('h-doc').addEventListener('input', function (e) {
+            let v = e.target.value.replace(/\D/g, '').slice(0, 14);
+            if (v.length <= 11) {
+                // CPF: 000.000.000-00
+                v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            } else {
+                // CNPJ: 00.000.000/0000-00
+                v = v.replace(/(\d{2})(\d)/, '$1.$2');
+                v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                v = v.replace(/(\d{3})(\d)/, '$1/$2');
+                v = v.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+            }
+            e.target.value = v;
+        });
+
+        // === MULTI-STEP HERO FORM ===
+        function mstepNext() {
+            const nome  = document.getElementById('h-nome').value.trim();
+            const doc   = document.getElementById('h-doc').value.trim();
+            const tel   = document.getElementById('h-tel').value.trim();
+            const email = document.getElementById('h-email').value.trim();
+            if (!nome || !doc || !tel || !email) {
+                alert('Por favor, preencha todos os campos antes de continuar.');
+                return;
+            }
+            document.getElementById('mstep1').style.display = 'none';
+            document.getElementById('mstep2').style.display = 'block';
+            document.getElementById('mstep-fill').style.width = '100%';
+            document.getElementById('mstep-pct').textContent = '100%';
+            document.getElementById('mstep-lbl').textContent = 'Passo 2 de 2 — Sobre o produto';
+        }
+
+        function mstepPrev() {
+            document.getElementById('mstep2').style.display = 'none';
+            document.getElementById('mstep1').style.display = 'block';
+            document.getElementById('mstep-fill').style.width = '50%';
+            document.getElementById('mstep-pct').textContent = '50%';
+            document.getElementById('mstep-lbl').textContent = 'Passo 1 de 2 — Seus dados';
+        }
+
+        function mstepSubmit() {
+            const nome  = document.getElementById('h-nome').value.trim();
+            const doc   = document.getElementById('h-doc').value.trim();
+            const tel   = document.getElementById('h-tel').value.trim();
+            const email = document.getElementById('h-email').value.trim();
+            const produto = document.getElementById('h-produto');
+            const qtd   = document.getElementById('h-qtd');
+            const produtoLabel = produto.options[produto.selectedIndex].text;
+            const qtdLabel     = qtd.options[qtd.selectedIndex].text;
+
+            const lines = [
+                '🎞️ *Solicitação de Orçamento — Fita Adesiva Express*',
+                '',
+                `*Nome:* ${nome}`,
+                `*CNPJ/CPF:* ${doc}`,
+                `*Telefone:* ${tel}`,
+                `*E-mail:* ${email}`,
+                produto.value ? `*Produto:* ${produtoLabel}` : null,
+                qtd.value     ? `*Quantidade:* ${qtdLabel}`  : null,
+            ].filter(Boolean).join('\n');
+
+            window.open('https://wa.me/5547996353757?text=' + encodeURIComponent(lines), '_blank');
+            document.getElementById('mstep2').style.display = 'none';
+            document.getElementById('mstep-success').style.display = 'block';
+        }
+
+        // Form submit → WhatsApp
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const empresa = document.getElementById('empresa').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const produto = document.getElementById('produto');
+            const qtd = document.getElementById('quantidade');
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            if (!nome || !email || !telefone) {
+                alert('Por favor, preencha os campos obrigatórios: Nome, E-mail e WhatsApp.');
+                return;
+            }
+
+            const produtoLabel = produto.options[produto.selectedIndex].text;
+            const qtdLabel = qtd.options[qtd.selectedIndex].text;
+
+            const lines = [
+                '🎞️ *Solicitação de Orçamento — Fita Adesiva Express*',
+                '',
+                `*Nome:* ${nome}`,
+                empresa ? `*Empresa:* ${empresa}` : null,
+                `*E-mail:* ${email}`,
+                `*WhatsApp:* ${telefone}`,
+                produto.value ? `*Produto de interesse:* ${produtoLabel}` : null,
+                qtd.value ? `*Quantidade:* ${qtdLabel}` : null,
+                mensagem ? `*Observações:* ${mensagem}` : null,
+            ].filter(Boolean).join('\n');
+
+            const url = 'https://wa.me/5547996353757?text=' + encodeURIComponent(lines);
+            window.open(url, '_blank');
+
+            // Show success state
+            document.getElementById('orcamento-form').style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
