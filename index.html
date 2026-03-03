@@ -2150,7 +2150,7 @@
             document.getElementById('mstep-lbl').textContent = 'Passo 1 de 2 — Seus dados';
         }
 
-        function mstepSubmit() {
+        async function mstepSubmit() {
             const nome  = document.getElementById('h-nome').value.trim();
             const doc   = document.getElementById('h-doc').value.trim();
             const tel   = document.getElementById('h-tel').value.trim();
@@ -2160,6 +2160,22 @@
             const produtoLabel = produto.options[produto.selectedIndex].text;
             const qtdLabel     = qtd.options[qtd.selectedIndex].text;
 
+            // Envia e-mail via API
+            fetch('/api/contato', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nome,
+                    empresa: doc,
+                    email,
+                    telefone: tel,
+                    produto: produto.value ? produtoLabel : '',
+                    quantidade: qtd.value ? qtdLabel : '',
+                    mensagem: '',
+                }),
+            }).catch(() => {});
+
+            // Abre WhatsApp paralelamente
             const lines = [
                 '🎞️ *Solicitação de Orçamento — Fita Adesiva Express*',
                 '',
@@ -2176,8 +2192,7 @@
             document.getElementById('mstep-success').style.display = 'block';
         }
 
-        // Form submit → WhatsApp
-        function handleFormSubmit(e) {
+        async function handleFormSubmit(e) {
             e.preventDefault();
 
             const nome = document.getElementById('nome').value.trim();
@@ -2196,6 +2211,22 @@
             const produtoLabel = produto.options[produto.selectedIndex].text;
             const qtdLabel = qtd.options[qtd.selectedIndex].text;
 
+            // Envia e-mail via API
+            fetch('/api/contato', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nome,
+                    empresa,
+                    email,
+                    telefone,
+                    produto: produto.value ? produtoLabel : '',
+                    quantidade: qtd.value ? qtdLabel : '',
+                    mensagem,
+                }),
+            }).catch(() => {});
+
+            // Abre WhatsApp paralelamente
             const lines = [
                 '🎞️ *Solicitação de Orçamento — Fita Adesiva Express*',
                 '',
