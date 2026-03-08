@@ -1987,27 +1987,40 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="produto">Tipo de produto de interesse</label>
+                            <label for="produto">Tipo de Fita</label>
                             <select id="produto" name="produto">
-                                <option value="">Selecione um produto</option>
+                                <option value="">Selecione</option>
                                 <option value="acrilica">Fita Acrílica (BOPP)</option>
                                 <option value="hotmelt">Fita Hot Melt</option>
-                                <option value="personalizada">Fita Personalizada (com logo)</option>
-                                <option value="seguranca">Fita de Segurança</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="quantidade">Quantidade aproximada</label>
-                            <select id="quantidade" name="quantidade">
-                                <option value="">Selecione a quantidade</option>
-                                <option value="48">48 Rolos</option>
-                                <option value="72">72 Rolos</option>
-                                <option value="96">96 Rolos</option>
-                                <option value="144">144 Rolos</option>
-                                <option value="192">192 Rolos</option>
-                                <option value="288">288 Rolos</option>
-                                <option value="288+">Acima de 288 Rolos</option>
+                            <label for="impressao">Impressão na Fita</label>
+                            <select id="impressao" name="impressao">
+                                <option value="">Selecione</option>
+                                <option value="lisa">Sem personalização (Lisa)</option>
+                                <option value="personalizada">Com personalização (Sua logo, etc.)</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="espessura">Espessura</label>
+                            <select id="espessura" name="espessura" onchange="atualizarQuantidade()">
+                                <option value="">Selecione</option>
+                                <option value="48mm">48mm de espessura</option>
+                                <option value="72mm">72mm de espessura</option>
+                                <option value="outra">Outra Espessura</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade</label>
+                            <select id="quantidade" name="quantidade">
+                                <option value="">Selecione a espessura primeiro</option>
+                            </select>
+                            <input type="text" id="quantidade-texto" name="quantidade-texto"
+                                placeholder="Ex: 50 rolos de 36mm"
+                                style="display:none;margin-top:0;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.95rem;">
                         </div>
                     </div>
 
@@ -2275,44 +2288,53 @@
             const empresa = document.getElementById('empresa').value.trim();
             const email = document.getElementById('email').value.trim();
             const telefone = document.getElementById('telefone').value.trim();
-            const produto = document.getElementById('produto');
-            const qtd = document.getElementById('quantidade');
-            const mensagem = document.getElementById('mensagem').value.trim();
+            const produto   = document.getElementById('produto');
+            const impressao = document.getElementById('impressao');
+            const espessura = document.getElementById('espessura');
+            const qtd       = document.getElementById('quantidade');
+            const qtdTexto  = document.getElementById('quantidade-texto');
+            const mensagem  = document.getElementById('mensagem').value.trim();
 
             if (!nome || !email || !telefone) {
                 alert('Por favor, preencha os campos obrigatórios: Nome, E-mail e WhatsApp.');
                 return;
             }
 
-            const produtoLabel = produto.options[produto.selectedIndex].text;
-            const qtdLabel = qtd.options[qtd.selectedIndex].text;
+            const produtoLabel   = produto.options[produto.selectedIndex].text;
+            const impressaoLabel = impressao.options[impressao.selectedIndex].text;
+            const espessuraLabel = espessura.options[espessura.selectedIndex].text;
+            const qtdLabel = espessura.value === 'outra'
+                ? qtdTexto.value.trim()
+                : qtd.options[qtd.selectedIndex].text;
+            const detalhes = [
+                produto.value   ? `Tipo: ${produtoLabel}`        : '',
+                impressao.value ? `Impressão: ${impressaoLabel}` : '',
+                espessura.value ? `Espessura: ${espessuraLabel}` : '',
+            ].filter(Boolean).join(' | ');
 
-            // Envia e-mail via API
             fetch('/api/contato', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    nome,
-                    empresa,
-                    email,
-                    telefone,
+                    nome, empresa, email, telefone,
                     produto: produto.value ? produtoLabel : '',
-                    quantidade: qtd.value ? qtdLabel : '',
-                    mensagem,
+                    quantidade: qtdLabel,
+                    mensagem: detalhes + (mensagem ? '\n' + mensagem : ''),
                 }),
             }).catch(() => {});
 
-            // Abre WhatsApp paralelamente
             const lines = [
                 '🎞️ *Solicitação de Orçamento — Fita Adesiva Express*',
                 '',
                 `*Nome:* ${nome}`,
-                empresa ? `*Empresa:* ${empresa}` : null,
+                empresa     ? `*Empresa:* ${empresa}`              : null,
                 `*E-mail:* ${email}`,
                 `*WhatsApp:* ${telefone}`,
-                produto.value ? `*Produto de interesse:* ${produtoLabel}` : null,
-                qtd.value ? `*Quantidade:* ${qtdLabel}` : null,
-                mensagem ? `*Observações:* ${mensagem}` : null,
+                produto.value   ? `*Tipo de Fita:* ${produtoLabel}`   : null,
+                impressao.value ? `*Impressão:* ${impressaoLabel}`     : null,
+                espessura.value ? `*Espessura:* ${espessuraLabel}`     : null,
+                qtdLabel        ? `*Quantidade:* ${qtdLabel}`          : null,
+                mensagem        ? `*Observações:* ${mensagem}`         : null,
             ].filter(Boolean).join('\n');
 
             const url = 'https://wa.me/5511911843410?text=' + encodeURIComponent(lines);
@@ -2321,6 +2343,31 @@
             // Show success state
             document.getElementById('orcamento-form').style.display = 'none';
             document.getElementById('form-success').style.display = 'block';
+        }
+
+        function atualizarQuantidade() {
+            const espessura = document.getElementById('espessura').value;
+            const qtdSelect = document.getElementById('quantidade');
+            const qtdTexto  = document.getElementById('quantidade-texto');
+            if (espessura === 'outra') {
+                qtdSelect.style.display = 'none';
+                qtdTexto.style.display  = 'block';
+                qtdTexto.value = '';
+            } else {
+                qtdSelect.style.display = 'block';
+                qtdTexto.style.display  = 'none';
+                qtdSelect.innerHTML = '<option value="">Selecione a quantidade</option>';
+                const opcoes = espessura === '48mm'
+                    ? ['72 Rolos', '144 Rolos', '288 Rolos', 'Acima de 288 Rolos']
+                    : espessura === '72mm'
+                    ? ['48 Rolos', '96 Rolos', '192 Rolos', 'Acima de 192 Rolos']
+                    : [];
+                opcoes.forEach(o => {
+                    const opt = document.createElement('option');
+                    opt.value = o; opt.textContent = o;
+                    qtdSelect.appendChild(opt);
+                });
+            }
         }
     </script>
 
