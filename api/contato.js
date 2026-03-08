@@ -11,10 +11,11 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Campos obrigatórios ausentes' });
   }
 
+  const port = parseInt(process.env.SMTP_PORT);
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT),
-    secure: true,
+    port,
+    secure: port === 465,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
