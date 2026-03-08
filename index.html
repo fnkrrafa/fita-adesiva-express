@@ -1575,6 +1575,7 @@
                                 <select class="mstep-input" id="h-qtd">
                                     <option value="">Selecione</option>
                                 </select>
+                                <input class="mstep-input" type="text" id="h-qtd-texto" placeholder="Ex: 50 rolos de 48mm" style="display:none;margin-top:8px;">
                             </div>
                             <div class="mstep-btn-row">
                                 <button type="button" class="mstep-btn-prev" onclick="mstepPrev2()">Anterior</button>
@@ -2182,17 +2183,24 @@
             const espessura = document.getElementById('h-espessura').value;
             if (!espessura) { alert('Selecione a espessura antes de continuar.'); return; }
             const qtdSelect = document.getElementById('h-qtd');
-            qtdSelect.innerHTML = '<option value="">Selecione</option>';
-            const opcoes = espessura === '48mm'
-                ? ['72 Rolos', '144 Rolos', '288 Rolos', 'Acima de 288 Rolos']
-                : espessura === '72mm'
-                ? ['48 Rolos', '96 Rolos', '192 Rolos', 'Acima de 192 Rolos']
-                : ['Até 100 Rolos', '100 a 200 Rolos', '200 a 500 Rolos', 'Acima de 500 Rolos'];
-            opcoes.forEach(o => {
-                const opt = document.createElement('option');
-                opt.value = o; opt.textContent = o;
-                qtdSelect.appendChild(opt);
-            });
+            const qtdTexto  = document.getElementById('h-qtd-texto');
+            if (espessura === 'outra') {
+                qtdSelect.style.display = 'none';
+                qtdTexto.style.display  = 'block';
+                qtdTexto.value = '';
+            } else {
+                qtdSelect.style.display = 'block';
+                qtdTexto.style.display  = 'none';
+                qtdSelect.innerHTML = '<option value="">Selecione</option>';
+                const opcoes = espessura === '48mm'
+                    ? ['72 Rolos', '144 Rolos', '288 Rolos', 'Acima de 288 Rolos']
+                    : ['48 Rolos', '96 Rolos', '192 Rolos', 'Acima de 192 Rolos'];
+                opcoes.forEach(o => {
+                    const opt = document.createElement('option');
+                    opt.value = o; opt.textContent = o;
+                    qtdSelect.appendChild(opt);
+                });
+            }
             document.getElementById('mstep2').style.display = 'none';
             document.getElementById('mstep3').style.display = 'block';
             document.getElementById('mstep-fill').style.width = '100%';
@@ -2217,10 +2225,13 @@
             const impressao = document.getElementById('h-impressao');
             const espessura = document.getElementById('h-espessura');
             const qtd       = document.getElementById('h-qtd');
+            const qtdTexto  = document.getElementById('h-qtd-texto');
             const produtoLabel   = produto.options[produto.selectedIndex].text;
             const impressaoLabel = impressao.options[impressao.selectedIndex].text;
             const espessuraLabel = espessura.options[espessura.selectedIndex].text;
-            const qtdLabel       = qtd.options[qtd.selectedIndex].text;
+            const qtdLabel = espessura.value === 'outra'
+                ? qtdTexto.value.trim()
+                : qtd.options[qtd.selectedIndex].text;
             const mensagem = [
                 produto.value   ? `Tipo: ${produtoLabel}`       : '',
                 impressao.value ? `Impressão: ${impressaoLabel}` : '',
