@@ -1,0 +1,4 @@
+node_modules/
+config.php
+*.zip
+teste-email.php

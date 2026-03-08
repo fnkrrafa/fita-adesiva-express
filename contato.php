@@ -7,6 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+$configPath = dirname($_SERVER['DOCUMENT_ROOT']) . '/config.php';
+if (!file_exists($configPath)) {
+    $configPath = dirname(__DIR__) . '/config.php';
+}
+require_once $configPath;
 require_once __DIR__ . '/PHPMailer/Exception.php';
 require_once __DIR__ . '/PHPMailer/PHPMailer.php';
 require_once __DIR__ . '/PHPMailer/SMTP.php';
@@ -30,44 +35,58 @@ if (!$nome || !$email || !$telefone) {
     exit;
 }
 
-$mail = new PHPMailer(true);
+$corpo  = "<h2 style='color:#1a56db;'>Nova Solicitação de Orçamento — Fita Adesiva Express</h2>";
+$corpo .= "<table cellpadding='8' style='border-collapse:collapse;width:100%;max-width:500px;'>";
+$corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Nome</td><td>$nome</td></tr>";
+if ($empresa)    $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Empresa</td><td>$empresa</td></tr>";
+$corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>E-mail</td><td>$email</td></tr>";
+$corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>WhatsApp</td><td>$telefone</td></tr>";
+if ($produto)    $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Produto</td><td>$produto</td></tr>";
+if ($quantidade) $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Quantidade</td><td>$quantidade</td></tr>";
+if ($mensagem)   $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Observações</td><td>$mensagem</td></tr>";
+$corpo .= "</table>";
 
-try {
+$assunto = "Novo orçamento de $nome — Fita Adesiva Express";
+
+function criarMailer($email, $nome) {
+    $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->Host       = 'mail.fitaadesivaexpress.com.br';
+    $mail->Host       = SMTP_HOST;
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'vendas@fitaadesivaexpress.com.br';
-    $mail->Password   = 'V#Md-0;er2w(U7iN';
+    $mail->Username   = SMTP_USER;
+    $mail->Password   = SMTP_PASS;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port       = 465;
-
-    $mail->setFrom('vendas@fitaadesivaexpress.com.br', 'Fita Adesiva Express');
+    $mail->Port       = SMTP_PORT;
+    $mail->setFrom(SMTP_USER, 'Fita Adesiva Express');
     $mail->addReplyTo($email, $nome);
-    $mail->addAddress('vendas@fitec.com.br');
-    $mail->addAddress('vendas2@fitec.com.br');
-    $mail->addAddress('rafaelsiewerdtoca@gmail.com');
-
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
-    $mail->Subject = "Novo orçamento de $nome — Fita Adesiva Express";
+    return $mail;
+}
 
-    $corpo  = "<h2 style='color:#1a56db;'>Nova Solicitação de Orçamento — Fita Adesiva Express</h2>";
-    $corpo .= "<table cellpadding='8' style='border-collapse:collapse;width:100%;max-width:500px;'>";
-    $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Nome</td><td>$nome</td></tr>";
-    if ($empresa)    $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Empresa</td><td>$empresa</td></tr>";
-    $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>E-mail</td><td>$email</td></tr>";
-    $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>WhatsApp</td><td>$telefone</td></tr>";
-    if ($produto)    $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Produto</td><td>$produto</td></tr>";
-    if ($quantidade) $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Quantidade</td><td>$quantidade</td></tr>";
-    if ($mensagem)   $corpo .= "<tr><td style='font-weight:bold;background:#f1f5f9;'>Observações</td><td>$mensagem</td></tr>";
-    $corpo .= "</table>";
+$destinatarios = [
+    'rafaelsiewerdtoca@gmail.com',
+    'vendas@fitec.com.br',
+    'vendas2@fitec.com.br',
+];
 
-    $mail->Body = $corpo;
+$enviados = 0;
+foreach ($destinatarios as $dest) {
+    try {
+        $mail = criarMailer($email, $nome);
+        $mail->addAddress($dest);
+        $mail->Subject = $assunto;
+        $mail->Body    = $corpo;
+        $mail->send();
+        $enviados++;
+    } catch (Exception $e) {
+        // continua para o próximo destinatário
+    }
+}
 
-    $mail->send();
-    echo json_encode(['ok' => true]);
-
-} catch (Exception $e) {
+if ($enviados > 0) {
+    echo json_encode(['ok' => true, 'enviados' => $enviados]);
+} else {
     http_response_code(500);
-    echo json_encode(['error' => $mail->ErrorInfo]);
+    echo json_encode(['error' => 'Falha ao enviar para todos os destinatários']);
 }
