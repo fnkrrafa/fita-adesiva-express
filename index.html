@@ -2151,7 +2151,27 @@
         applyPhoneMask(document.getElementById('telefone'));
         applyPhoneMask(document.getElementById('h-tel'));
 
-        // CPF / CNPJ mask (hero form)
+        // CPF / CNPJ mask (hero + footer)
+        function applyDocMask(el) {
+            el.addEventListener('input', function (e) {
+                let v = e.target.value.replace(/\D/g, '').slice(0, 14);
+                if (v.length <= 11) {
+                    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                    v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                } else {
+                    v = v.replace(/(\d{2})(\d)/, '$1.$2');
+                    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                    v = v.replace(/(\d{3})(\d)/, '$1/$2');
+                    v = v.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+                }
+                e.target.value = v;
+            });
+        }
+        applyDocMask(document.getElementById('h-doc'));
+        applyDocMask(document.getElementById('empresa'));
+
+        // CPF / CNPJ mask (hero form) — legacy
         document.getElementById('h-doc').addEventListener('input', function (e) {
             let v = e.target.value.replace(/\D/g, '').slice(0, 14);
             if (v.length <= 11) {
