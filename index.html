@@ -1513,11 +1513,11 @@
                         <!-- Progress bar -->
                         <div class="mstep-progress-wrap">
                             <div class="mstep-bar">
-                                <div class="mstep-bar-fill" id="mstep-fill" style="width:50%">
-                                    <span id="mstep-pct">50%</span>
+                                <div class="mstep-bar-fill" id="mstep-fill" style="width:33%">
+                                    <span id="mstep-pct">33%</span>
                                 </div>
                             </div>
-                            <span class="mstep-step-label" id="mstep-lbl">Passo 1 de 2 — Seus dados</span>
+                            <span class="mstep-step-label" id="mstep-lbl">Passo 1 de 3 — Seus dados</span>
                         </div>
 
                         <!-- Step 1 -->
@@ -1537,29 +1537,47 @@
                         <div class="mstep-panel" id="mstep2" style="display:none">
                             <div class="mstep-grid2">
                                 <div>
-                                    <label class="mstep-label">Tipo de fita</label>
+                                    <label class="mstep-label">Tipo de Fita</label>
                                     <select class="mstep-input" id="h-produto">
                                         <option value="">Selecione</option>
                                         <option value="acrilica">Fita Acrílica (BOPP)</option>
                                         <option value="hotmelt">Fita Hot Melt</option>
-                                        <option value="personalizada">Fita Personalizada</option>
-                                        <option value="seguranca">Fita de Segurança</option>
-                                        <option value="nao-sei">Não sei ainda</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="mstep-label">Quantidade</label>
-                                    <select class="mstep-input" id="h-qtd">
+                                    <label class="mstep-label">Impressão na Fita</label>
+                                    <select class="mstep-input" id="h-impressao">
                                         <option value="">Selecione</option>
-                                        <option value="1-10">1 a 10 caixas</option>
-                                        <option value="10-50">10 a 50 caixas</option>
-                                        <option value="50-100">50 a 100 caixas</option>
-                                        <option value="100+">+100 caixas</option>
+                                        <option value="lisa">Sem personalização (Lisa)</option>
+                                        <option value="personalizada">Com personalização (Sua logo, etc.)</option>
                                     </select>
                                 </div>
                             </div>
+                            <div>
+                                <label class="mstep-label">Espessura</label>
+                                <select class="mstep-input" id="h-espessura">
+                                    <option value="">Selecione</option>
+                                    <option value="48mm">48mm de espessura</option>
+                                    <option value="72mm">72mm de espessura</option>
+                                    <option value="outra">Outra Espessura</option>
+                                </select>
+                            </div>
                             <div class="mstep-btn-row">
                                 <button type="button" class="mstep-btn-prev" onclick="mstepPrev()">Anterior</button>
+                                <button type="button" class="mstep-btn-next" onclick="mstepNext2()">Próximo</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="mstep-panel" id="mstep3" style="display:none">
+                            <div>
+                                <label class="mstep-label">Quantidade</label>
+                                <select class="mstep-input" id="h-qtd">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                            <div class="mstep-btn-row">
+                                <button type="button" class="mstep-btn-prev" onclick="mstepPrev2()">Anterior</button>
                                 <button type="button" class="mstep-btn-submit" onclick="mstepSubmit()">
                                     <svg width="17" height="17" fill="currentColor" aria-hidden="true"><use href="#ico-wapp"/></svg>
                                     Solicitar Agora
@@ -2139,54 +2157,87 @@
         // === MULTI-STEP HERO FORM ===
         function mstepNext() {
             const nome  = document.getElementById('h-nome').value.trim();
-            const doc   = document.getElementById('h-doc').value.trim();
             const tel   = document.getElementById('h-tel').value.trim();
             const email = document.getElementById('h-email').value.trim();
-            if (!nome || !doc || !tel || !email) {
+            if (!nome || !tel || !email) {
                 alert('Por favor, preencha todos os campos antes de continuar.');
                 return;
             }
             document.getElementById('mstep1').style.display = 'none';
             document.getElementById('mstep2').style.display = 'block';
-            document.getElementById('mstep-fill').style.width = '100%';
-            document.getElementById('mstep-pct').textContent = '100%';
-            document.getElementById('mstep-lbl').textContent = 'Passo 2 de 2 — Sobre o produto';
+            document.getElementById('mstep-fill').style.width = '66%';
+            document.getElementById('mstep-pct').textContent = '66%';
+            document.getElementById('mstep-lbl').textContent = 'Passo 2 de 3 — Tipo de produto';
         }
 
         function mstepPrev() {
             document.getElementById('mstep2').style.display = 'none';
             document.getElementById('mstep1').style.display = 'block';
-            document.getElementById('mstep-fill').style.width = '50%';
-            document.getElementById('mstep-pct').textContent = '50%';
-            document.getElementById('mstep-lbl').textContent = 'Passo 1 de 2 — Seus dados';
+            document.getElementById('mstep-fill').style.width = '33%';
+            document.getElementById('mstep-pct').textContent = '33%';
+            document.getElementById('mstep-lbl').textContent = 'Passo 1 de 3 — Seus dados';
+        }
+
+        function mstepNext2() {
+            const espessura = document.getElementById('h-espessura').value;
+            if (!espessura) { alert('Selecione a espessura antes de continuar.'); return; }
+            const qtdSelect = document.getElementById('h-qtd');
+            qtdSelect.innerHTML = '<option value="">Selecione</option>';
+            const opcoes = espessura === '48mm'
+                ? ['72 Rolos', '144 Rolos', '288 Rolos', 'Acima de 288 Rolos']
+                : espessura === '72mm'
+                ? ['48 Rolos', '96 Rolos', '192 Rolos', 'Acima de 192 Rolos']
+                : ['Até 100 Rolos', '100 a 200 Rolos', '200 a 500 Rolos', 'Acima de 500 Rolos'];
+            opcoes.forEach(o => {
+                const opt = document.createElement('option');
+                opt.value = o; opt.textContent = o;
+                qtdSelect.appendChild(opt);
+            });
+            document.getElementById('mstep2').style.display = 'none';
+            document.getElementById('mstep3').style.display = 'block';
+            document.getElementById('mstep-fill').style.width = '100%';
+            document.getElementById('mstep-pct').textContent = '100%';
+            document.getElementById('mstep-lbl').textContent = 'Passo 3 de 3 — Quantidade';
+        }
+
+        function mstepPrev2() {
+            document.getElementById('mstep3').style.display = 'none';
+            document.getElementById('mstep2').style.display = 'block';
+            document.getElementById('mstep-fill').style.width = '66%';
+            document.getElementById('mstep-pct').textContent = '66%';
+            document.getElementById('mstep-lbl').textContent = 'Passo 2 de 3 — Tipo de produto';
         }
 
         async function mstepSubmit() {
-            const nome  = document.getElementById('h-nome').value.trim();
-            const doc   = document.getElementById('h-doc').value.trim();
-            const tel   = document.getElementById('h-tel').value.trim();
-            const email = document.getElementById('h-email').value.trim();
-            const produto = document.getElementById('h-produto');
-            const qtd   = document.getElementById('h-qtd');
-            const produtoLabel = produto.options[produto.selectedIndex].text;
-            const qtdLabel     = qtd.options[qtd.selectedIndex].text;
+            const nome      = document.getElementById('h-nome').value.trim();
+            const doc       = document.getElementById('h-doc').value.trim();
+            const tel       = document.getElementById('h-tel').value.trim();
+            const email     = document.getElementById('h-email').value.trim();
+            const produto   = document.getElementById('h-produto');
+            const impressao = document.getElementById('h-impressao');
+            const espessura = document.getElementById('h-espessura');
+            const qtd       = document.getElementById('h-qtd');
+            const produtoLabel   = produto.options[produto.selectedIndex].text;
+            const impressaoLabel = impressao.options[impressao.selectedIndex].text;
+            const espessuraLabel = espessura.options[espessura.selectedIndex].text;
+            const qtdLabel       = qtd.options[qtd.selectedIndex].text;
+            const mensagem = [
+                produto.value   ? `Tipo: ${produtoLabel}`       : '',
+                impressao.value ? `Impressão: ${impressaoLabel}` : '',
+                espessura.value ? `Espessura: ${espessuraLabel}` : '',
+            ].filter(Boolean).join(' | ');
 
-            // Envia e-mail via API
             fetch('/api/contato', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    nome,
-                    empresa: doc,
-                    email,
-                    telefone: tel,
+                    nome, empresa: doc, email, telefone: tel,
                     produto: produto.value ? produtoLabel : '',
                     quantidade: qtd.value ? qtdLabel : '',
-                    mensagem: '',
+                    mensagem,
                 }),
             }).catch(() => {});
 
-            // Abre WhatsApp paralelamente
             const lines = [
                 '🎞️ *Solicitação de Orçamento — Fita Adesiva Express*',
                 '',
@@ -2194,12 +2245,14 @@
                 `*CNPJ/CPF:* ${doc}`,
                 `*Telefone:* ${tel}`,
                 `*E-mail:* ${email}`,
-                produto.value ? `*Produto:* ${produtoLabel}` : null,
-                qtd.value     ? `*Quantidade:* ${qtdLabel}`  : null,
+                produto.value   ? `*Tipo de Fita:* ${produtoLabel}`   : null,
+                impressao.value ? `*Impressão:* ${impressaoLabel}`     : null,
+                espessura.value ? `*Espessura:* ${espessuraLabel}`     : null,
+                qtd.value       ? `*Quantidade:* ${qtdLabel}`          : null,
             ].filter(Boolean).join('\n');
 
             window.open('https://wa.me/5511911843410?text=' + encodeURIComponent(lines), '_blank');
-            document.getElementById('mstep2').style.display = 'none';
+            document.getElementById('mstep3').style.display = 'none';
             document.getElementById('mstep-success').style.display = 'block';
         }
 
