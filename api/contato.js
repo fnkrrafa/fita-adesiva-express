@@ -5,10 +5,38 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Método não permitido' });
   }
 
-  const { nome, empresa, email, telefone, produto, quantidade, mensagem } = req.body;
+  const { nome, empresa, email, telefone, produto, quantidade, mensagem, recaptchaToken } = req.body;
 
   if (!nome || !email || !telefone) {
     return res.status(400).json({ error: 'Campos obrigatórios ausentes' });
+  }
+
+  // Verificação do reCAPTCHA v2 (só roda se a chave secreta estiver configurada)
+  const recaptchaSecret = process.env.RECAPTCHA_SECRET;
+  if (recaptchaSecret) {
+    if (!recaptchaToken) {
+      return res.status(403).json({ error: 'reCAPTCHA não preenchido' });
+    }
+    try {
+      const params = new URLSearchParams();
+      params.append('secret', recaptchaSecret);
+      params.append('response', recaptchaToken);
+      const ip = req.headers['x-forwarded-for'];
+      if (ip) params.append('remoteip', String(ip).split(',')[0].trim());
+
+      const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params,
+      });
+      const verify = await verifyRes.json();
+      if (!verify.success) {
+        return res.status(403).json({ error: 'Falha na verificação do reCAPTCHA' });
+      }
+    } catch (err) {
+      console.error('Erro ao verificar reCAPTCHA:', err);
+      return res.status(502).json({ error: 'Erro ao verificar reCAPTCHA' });
+    }
   }
 
   const port = parseInt(process.env.SMTP_PORT);

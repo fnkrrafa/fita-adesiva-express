@@ -28,11 +28,50 @@ $telefone  = htmlspecialchars($data['telefone']   ?? '');
 $produto   = htmlspecialchars($data['produto']    ?? '');
 $quantidade= htmlspecialchars($data['quantidade'] ?? '');
 $mensagem  = htmlspecialchars($data['mensagem']   ?? '');
+$recaptchaToken = $data['recaptchaToken'] ?? '';
 
 if (!$nome || !$email || !$telefone) {
     http_response_code(400);
     echo json_encode(['error' => 'Campos obrigatórios ausentes']);
     exit;
+}
+
+// Verificação do reCAPTCHA v2 (só roda se a chave secreta estiver configurada no config.php)
+if (defined('RECAPTCHA_SECRET') && RECAPTCHA_SECRET) {
+    if (!$recaptchaToken) {
+        http_response_code(403);
+        echo json_encode(['error' => 'reCAPTCHA não preenchido']);
+        exit;
+    }
+    $postData = http_build_query([
+        'secret'   => RECAPTCHA_SECRET,
+        'response' => $recaptchaToken,
+        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+    ]);
+    $verifyRaw = false;
+    if (function_exists('curl_init')) {
+        $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        $verifyRaw = curl_exec($ch);
+        curl_close($ch);
+    } else {
+        $ctx = stream_context_create(['http' => [
+            'method'  => 'POST',
+            'header'  => 'Content-Type: application/x-www-form-urlencoded',
+            'content' => $postData,
+            'timeout' => 10,
+        ]]);
+        $verifyRaw = @file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $ctx);
+    }
+    $verify = json_decode($verifyRaw, true);
+    if (empty($verify['success'])) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Falha na verificação do reCAPTCHA']);
+        exit;
+    }
 }
 
 $corpo  = "<h2 style='color:#1a56db;'>Nova Solicitação de Orçamento — Fita Adesiva Express</h2>";

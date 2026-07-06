@@ -1571,6 +1571,7 @@
                                 </select>
                                 <input class="mstep-input" type="text" id="h-qtd-texto" placeholder="Ex: 50 rolos de 48mm" style="display:none;margin-top:8px;">
                             </div>
+                            <div id="recaptcha-mobile" style="margin:14px 0 4px;max-width:100%;overflow-x:auto;"></div>
                             <div class="mstep-btn-row">
                                 <button type="button" class="mstep-btn-prev" onclick="mstepPrev2()">Anterior</button>
                                 <button type="button" class="mstep-btn-submit" onclick="mstepSubmit()">
@@ -2025,6 +2026,8 @@
                             placeholder="Descreva sua necessidade, tipo de embalagem, uso previsto, largura desejada, etc."></textarea>
                     </div>
 
+                    <div id="recaptcha-desktop" style="margin:4px 0 12px;max-width:100%;overflow-x:auto;"></div>
+
                     <button type="submit" class="btn btn-whatsapp form-submit">
                         <svg width="18" height="18" fill="currentColor" aria-hidden="true"><use href="#ico-wapp"/></svg>
                         Enviar solicitação pelo WhatsApp
@@ -2267,6 +2270,13 @@
                 espessura.value ? `Espessura: ${espessuraLabel}` : '',
             ].filter(Boolean).join(' | ');
 
+            const recaptchaToken = (typeof grecaptcha !== 'undefined' && recaptchaMobileId !== null)
+                ? grecaptcha.getResponse(recaptchaMobileId) : '';
+            if (!recaptchaToken) {
+                alert('Por favor, confirme que você não é um robô.');
+                return;
+            }
+
             fetch('/api/contato', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -2275,8 +2285,11 @@
                     produto: produto.value ? produtoLabel : '',
                     quantidade: qtd.value ? qtdLabel : '',
                     mensagem,
+                    recaptchaToken,
                 }),
             }).catch(() => {});
+
+            if (typeof grecaptcha !== 'undefined' && recaptchaMobileId !== null) grecaptcha.reset(recaptchaMobileId);
 
             const lines = [
                 '🎞️ *Solicitação de Orçamento — Fita Adesiva Express*',
@@ -2315,6 +2328,13 @@
                 return;
             }
 
+            const recaptchaToken = (typeof grecaptcha !== 'undefined' && recaptchaDesktopId !== null)
+                ? grecaptcha.getResponse(recaptchaDesktopId) : '';
+            if (!recaptchaToken) {
+                alert('Por favor, confirme que você não é um robô.');
+                return;
+            }
+
             const produtoLabel   = produto.options[produto.selectedIndex].text;
             const impressaoLabel = impressao.options[impressao.selectedIndex].text;
             const espessuraLabel = espessura.options[espessura.selectedIndex].text;
@@ -2335,8 +2355,11 @@
                     produto: produto.value ? produtoLabel : '',
                     quantidade: qtdLabel,
                     mensagem: detalhes + (mensagem ? '\n' + mensagem : ''),
+                    recaptchaToken,
                 }),
             }).catch(() => {});
+
+            if (typeof grecaptcha !== 'undefined' && recaptchaDesktopId !== null) grecaptcha.reset(recaptchaDesktopId);
 
             const lines = [
                 '🎞️ *Solicitação de Orçamento — Fita Adesiva Express*',
@@ -2393,6 +2416,21 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PJQ9NHX6');</script>
     <!-- End Google Tag Manager -->
+
+    <!-- Google reCAPTCHA v2 ("Não sou um robô") -->
+    <script>
+        var RECAPTCHA_SITE_KEY = '6LeCKkgtAAAAAKBDEdUk54FCCcHK6VigCOvox3dy';
+        var recaptchaDesktopId = null, recaptchaMobileId = null;
+        function onRecaptchaLoad() {
+            if (document.getElementById('recaptcha-desktop')) {
+                recaptchaDesktopId = grecaptcha.render('recaptcha-desktop', { sitekey: RECAPTCHA_SITE_KEY });
+            }
+            if (document.getElementById('recaptcha-mobile')) {
+                recaptchaMobileId = grecaptcha.render('recaptcha-mobile', { sitekey: RECAPTCHA_SITE_KEY });
+            }
+        }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
 
 </body>
 
